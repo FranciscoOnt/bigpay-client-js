@@ -48,7 +48,7 @@ export default class OffsitePaymentInitializer {
      * @returns {void}
      * @throws {Error}
      */
-    initializeOffsitePayment(data, callback) {
+    initializeOffsitePayment(data, callback, target = '') {
         const { paymentMethod = {} } = data;
 
         if (paymentMethod.type !== HOSTED) {
@@ -58,6 +58,6 @@ export default class OffsitePaymentInitializer {
         const payload = this.payloadMapper.mapToPayload(data);
         const url = this.urlHelper.getOffsitePaymentUrl();
 
-        this.formPoster.postForm(url, payload, callback);
+        this.formPoster.postForm(url, payload, callback, target);
     }
 }

@@ -84,8 +84,8 @@ export default class Client {
      * @param {Function} [callback]
      * @returns {void}
      */
-    initializeOffsitePayment(data, callback) {
-        this.offsitePaymentInitializer.initializeOffsitePayment(data, callback);
+    initializeOffsitePayment(data, callback, target = '') {
+        this.offsitePaymentInitializer.initializeOffsitePayment(data, callback, target);
     }
 
     /**

@@ -79,6 +79,7 @@ export default class PayloadMapper {
                 payment_method_id: paymentMethod.id,
                 reference_id: order.orderId ? toString(order.orderId) : null,
                 return_url: paymentMethod.returnUrl || (order.payment ? order.payment.returnUrl : null),
+                should_save_instrument: payment.shouldSaveInstrument ? payment.shouldSaveInstrument : null,
             },
             this.addressMapper.mapToBillingAddress(data),
             this.customerMapper.mapToCustomer(data),

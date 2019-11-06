@@ -85,8 +85,19 @@ describe('PayloadMapper', () => {
         });
 
         const output = payloadMapper.mapToPayload(data);
-
         expect(output.sample_field).toEqual('sample');
+    });
+
+    it('maps the shouldSaveInstrumentField if supplied as true', () => {
+        data = merge({}, paymentRequestDataMock, {
+            payment: {
+                shouldSaveInstrument: true,
+            },
+        });
+
+        const output = payloadMapper.mapToPayload(data);
+
+        expect(output.should_save_instrument).toEqual(true);
     });
 
     it('uses the return URL contained in the order object as a fallback', () => {

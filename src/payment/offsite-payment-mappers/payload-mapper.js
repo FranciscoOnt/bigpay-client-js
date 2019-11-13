@@ -87,6 +87,10 @@ export default class PayloadMapper {
             this.storeMapper.mapToStore(data)
         );
 
+        if (payment.formattedPayload) {
+            objectAssign(payload, payment.formattedPayload);
+        }
+
         return omitNil(payload);
     }
 }

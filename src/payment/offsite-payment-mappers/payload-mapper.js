@@ -65,7 +65,7 @@ export default class PayloadMapper {
      * @returns {Object}
      */
     mapToPayload(data) {
-        const { authToken, order = {}, paymentMethod = {} } = data;
+        const { authToken, order = {}, payment = {}, paymentMethod = {} } = data;
 
         const payload = objectAssign(
             {

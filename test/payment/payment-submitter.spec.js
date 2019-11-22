@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import { HOSTED } from '../../src/payment/payment-types';
+import { OFFLINE } from '../../src/payment/payment-types';
 import paymentRequestDataMock from '../mocks/payment-request-data';
 import PaymentSubmitter from '../../src/payment/payment-submitter';
 
@@ -55,10 +55,10 @@ describe('PaymentSubmitter', () => {
         expect(requestSender.postRequest).toHaveBeenCalledWith(url, transformedData, { headers: transformedHeaders }, callback);
     });
 
-    it('throws an error if the payment method is not an API provider', () => {
+    it('throws an error if the payment method is not an API or HOSTED provider', () => {
         data = merge({}, paymentRequestDataMock, {
             paymentMethod: {
-                type: HOSTED,
+                type: OFFLINE,
             },
         });
 

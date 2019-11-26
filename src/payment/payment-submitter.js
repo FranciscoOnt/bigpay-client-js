@@ -1,4 +1,4 @@
-import { API, HOSTED } from './payment-types';
+import { API } from './payment-types';
 import PayloadMapper from './v1/payment-mappers/payload-mapper';
 import RequestSender from '../common/http-request/request-sender';
 import UrlHelper from './url-helper';
@@ -51,7 +51,7 @@ export default class PaymentSubmitter {
     submitPayment(data, callback) {
         const { paymentMethod = {} } = data;
 
-        if (paymentMethod.type !== API && paymentMethod.type !== HOSTED) {
+        if (paymentMethod.type !== API) {
             throw new Error(`${paymentMethod.type} is not supported.`);
         }
 

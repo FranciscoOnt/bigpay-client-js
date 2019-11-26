@@ -85,6 +85,7 @@ describe('PayloadMapper', () => {
         });
 
         const output = payloadMapper.mapToPayload(data);
+
         expect(output.sample_field).toEqual('sample');
     });
 

@@ -88,6 +88,12 @@ export default class PayloadMapper {
             this.storeMapper.mapToStore(data)
         );
 
+        if (payment && payment.instrumentId) {
+            objectAssign(payload, {
+                bigpay_token: payment.instrumentId,
+            });
+        }
+
         const { formattedPayload = {} } = payment;
 
         objectAssign(payload, formattedPayload);

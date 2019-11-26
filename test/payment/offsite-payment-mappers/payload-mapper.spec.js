@@ -101,6 +101,19 @@ describe('PayloadMapper', () => {
         expect(output.should_save_instrument).toEqual(true);
     });
 
+    it('maps the intrumentId if supplied', () => {
+        const instrumentId = 'abc123';
+        data = merge({}, paymentRequestDataMock, {
+            payment: {
+                instrumentId,
+            },
+        });
+
+        const output = payloadMapper.mapToPayload(data);
+
+        expect(output.bigpay_token).toEqual(instrumentId);
+    });
+
     it('uses the return URL contained in the order object as a fallback', () => {
         data = merge({}, data, {
             order: {

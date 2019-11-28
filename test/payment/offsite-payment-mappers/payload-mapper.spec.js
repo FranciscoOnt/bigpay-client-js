@@ -98,7 +98,7 @@ describe('PayloadMapper', () => {
 
         const output = payloadMapper.mapToPayload(data);
 
-        expect(output.should_save_instrument).toEqual(true);
+        expect(output.vault_payment_instrument).toEqual(true);
     });
 
     it('maps the intrumentId if supplied', () => {
